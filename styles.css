@@ -12,6 +12,7 @@ body {
     min-height: 100vh;
     background-color: #f0f2f5;
     position: relative;
+    padding: 10px;
 }
 
 body::before {
@@ -44,30 +45,34 @@ body::after {
 
 .container {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 500px;
 }
 
 h1 {
     color: #333;
     margin-bottom: 20px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
 }
 
 .instructions {
     background-color: #fff;
-    padding: 15px;
+    padding: 12px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .instructions p {
     margin: 5px 0;
     color: #555;
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
 .sudoku-grid {
@@ -77,7 +82,8 @@ h1 {
     background-color: #333;
     padding: 2px;
     border: 2px solid #333;
-    max-width: 450px;
+    width: 100%;
+    max-width: min(450px, 95vw);
     margin: 0 auto;
 }
 
@@ -87,7 +93,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     cursor: pointer;
     transition: background-color 0.2s;
 }
@@ -97,7 +103,7 @@ h1 {
     height: 100%;
     border: none;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     background: transparent;
 }
 
@@ -130,12 +136,17 @@ h1 {
 
 .controls {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    font-size: 1rem;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 300px;
+    font-size: clamp(0.9rem, 3vw, 1rem);
     background-color: #2196f3;
     color: white;
     border: none;
@@ -150,8 +161,9 @@ button:hover {
 
 .message {
     margin-top: 20px;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     min-height: 1.5em;
+    padding: 0 10px;
 }
 
 .message.error {
@@ -160,4 +172,16 @@ button:hover {
 
 .message.success {
     color: #2e7d32;
+}
+
+@media (min-width: 768px) {
+    .controls {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    button {
+        width: auto;
+        margin: 0 10px;
+    }
 } 
